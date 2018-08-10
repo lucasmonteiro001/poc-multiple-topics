@@ -13,9 +13,9 @@ function setConnected(connected) {
 }
 
 function connect() {
-    var socket = new SockJS('/gs-guide-websocket');
+    var socket = new SockJS('/gs-guide-websocket?token=teste');
     stompClient = Stomp.over(socket);
-    stompClient.connect({}, function (frame) {
+    stompClient.connect({authToken: "meuAuthToken"}, function (frame) {
 
         var topicToSubscribe = prompt("What's the ORDER_ID?");
 

@@ -13,7 +13,6 @@ public class OrderController {
     @MessageMapping("/update/{name}")
     @SendTo("/topic/order/{name}")
     public OrderEventResponse orderEventHandler(OrderMessage message, @DestinationVariable String name) throws Exception {
-        Thread.sleep(1000); // simulated delay
         return new OrderEventResponse("Event = " + HtmlUtils.htmlEscape(message.getName()) + "!");
     }
 
